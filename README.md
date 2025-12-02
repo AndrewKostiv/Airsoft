@@ -1,15 +1,15 @@
-## Airsoft Tool
+# Airsoft Tool
 
 This Airsoft Tool will solve several problems my friends encountered in our games.
 
-# Feature List:
+## Feature List:
 
-# Features added:
+### Features added:
 None (It's a work in progress)
 
-# Features Planned:
+### Features Planned:
 
-Random teams:
+ Random teams:
     List of names
         Weighted
         Is Present
