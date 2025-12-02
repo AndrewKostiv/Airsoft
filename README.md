@@ -3,12 +3,10 @@
 This Airsoft Tool will solve several problems my friends encountered in our games.
 
 ## Feature List:
-
-### Features added:
-None (It's a work in progress)
+None so far (It's a work in progress)
 
 ### Features Planned:
-
+```
  Random teams:
     List of names
         Weighted
@@ -17,7 +15,7 @@ None (It's a work in progress)
         player count per team
         team count
 
-Game Mode:
+ Game Mode:
     List of modes:
         TDM (Team Death Match)
         Duos
@@ -40,3 +38,4 @@ Scoreboard:
 Game start timer
     Alarm when the Game starts
     Sub to timer
+```
