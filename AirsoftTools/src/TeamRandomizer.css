@@ -59,8 +59,6 @@
 }
 
 .text-input:focus {
-  ring: 2px;
-  ring-color: #6366f1;
   border-color: #6366f1;
 }
 
@@ -171,8 +169,6 @@
 }
 
 .number-input:focus {
-  ring: 2px;
-  ring-color: #6366f1;
   border-color: #6366f1;
 }
 
