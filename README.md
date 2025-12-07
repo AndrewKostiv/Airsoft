@@ -2,10 +2,12 @@
 
 This Airsoft Tool will solve several problems my friends encountered in our games.
 
-## Feature List:
-None so far (It's a work in progress)
+## Feature List (so far):
+
+Team Randomizer
 
 ### Features Planned:
+
 ```
  Random teams:
     List of names
