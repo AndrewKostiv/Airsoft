@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import TeamRandomizer from "./TeamRandomizer";
+import TeamRandomizer from "./TeamRandomizer.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
