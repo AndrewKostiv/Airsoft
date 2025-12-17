@@ -1,6 +1,6 @@
-function Team({ key, team, teamNumber }) {
+function Team({ team, teamNumber }) {
   return (
-    <li key={key}>
+    <li key={teamNumber}>
       <h3>Team {teamNumber + 1}</h3>
       <ul>
         {team.map((member) => (

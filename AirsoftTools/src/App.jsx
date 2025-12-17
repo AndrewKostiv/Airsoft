@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./css/App.css";
 import TeamRandomizer from "./Components/TeamRandomizer/TeamRandomizer.jsx";
 import TeamList from "./Components/TeamList/TeamList.jsx";
@@ -6,57 +6,57 @@ import TeamList from "./Components/TeamList/TeamList.jsx";
 const initialPlayers = [
   {
     name: "Andrew",
-    Rank: 0,
-    Melee: 0,
+    rank: 0,
+    melee: 0,
     kills: 0,
     deaths: 0,
-    GamesPlayed: 0,
-    GamesWon: 0,
-    GamesFlaked: 1,
+    gamesPlayed: 0,
+    gamesWon: 0,
+    gamesFlaked: 1,
     id: 1,
   },
   {
     name: "Hudson",
-    Rank: 0,
-    Melee: 0,
+    rank: 0,
+    melee: 0,
     kills: 0,
     deaths: 0,
-    GamesPlayed: 0,
-    GamesWon: 0,
-    GamesFlaked: 0,
+    gamesPlayed: 0,
+    gamesWon: 0,
+    gamesFlaked: 0,
     id: 2,
   },
   {
     name: "Sye",
-    Rank: 0,
-    Melee: 1,
+    rank: 0,
+    melee: 1,
     kills: 0,
     deaths: 0,
-    GamesPlayed: 0,
-    GamesWon: 0,
-    GamesFlaked: 0,
+    gamesPlayed: 0,
+    gamesWon: 0,
+    gamesFlaked: 0,
     id: 3,
   },
   {
     name: "Landon",
-    Rank: 0,
-    Melee: 0,
+    rank: 0,
+    melee: 0,
     kills: 0,
     deaths: 0,
-    GamesPlayed: 0,
-    GamesWon: 0,
-    GamesFlaked: 0,
+    gamesPlayed: 0,
+    gamesWon: 0,
+    gamesFlaked: 0,
     id: 4,
   },
   {
     name: "Daren",
-    Rank: 0,
-    Melee: 0,
+    rank: 0,
+    melee: 0,
     kills: 0,
     deaths: 0,
-    GamesPlayed: 0,
-    GamesWon: 0,
-    GamesFlaked: 0,
+    gamesPlayed: 0,
+    gamesWon: 0,
+    gamesFlaked: 0,
     id: 5,
   },
 ];
@@ -67,32 +67,58 @@ function App() {
   //================================
   // Functions
   //================================
-  function handleAddPlayer(newPlayerName) {
+  /**
+   *
+   * @param {*} e
+   * @param {*} newPlayerName Player name
+   */
+  function handleAddPlayer(e, newPlayerName) {
+    e.preventDefault();
+    if (!newPlayerName) return;
     const newPlayer = {
       name: newPlayerName,
       Rank: 0,
-      Melee: 0,
+      melee: 0,
       kills: 0,
       deaths: 0,
-      GamesPlayed: 0,
-      GamesWon: 0,
-      GamesFlaked: 0,
+      gamesPlayed: 0,
+      gamesWon: 0,
+      gamesFlaked: 0,
       id: Date.now(),
     };
     setPlayers((players) => [...players, newPlayer]);
   }
 
-  function handleRemovePlayer(id) {
+  /**
+   *
+   * @param {*} e
+   * @param {*} id Player ID
+   */
+  function handleRemovePlayer(e, id) {
+    e.preventDefault();
     setPlayers((players) => players.filter((player) => player.id !== id));
   }
 
-  function handleUpdatePlayer(newPlayerData) {
+  /**
+   *
+   * @param {*} e
+   * @param {*} newPlayerData Only the new data object, not a full player data object
+   * @param {*} id Player ID
+   */
+  function handleUpdatePlayer(e, newPlayerData, id) {
+    // e.preventDefault();
+    // console.log(newPlayerData);
+    // console.log(id);
+
     setPlayers((players) =>
       players.map((player) =>
-        player.id !== newPlayerData.id ? newPlayerData : player
+        player.id === id ? { ...player, ...newPlayerData } : player
       )
     );
   }
+  useEffect(() => {
+    console.log(players);
+  }, [players]);
   //================================
   // jsx
   //================================

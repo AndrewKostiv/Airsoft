@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Team from "../Team";
+import Team from "./Team";
 import "./TeamRandomizer.css";
 
 export default function TeamRandomizer({ players }) {

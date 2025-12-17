@@ -1,9 +1,31 @@
-import React from "react";
+import { useState } from "react";
+import TeamMember from "./TeamMember";
+function TeamList({ players, onAddPlayer, onRemovePlayer, onUpdatePlayer }) {
+  const [newPlayer, setNewPlayer] = useState("");
 
-function TeamList() {
   return (
     <>
       <h2>Team List </h2>
+      <form onSubmit={(e) => onAddPlayer(e, newPlayer)}>
+        <input
+          type="text"
+          name=""
+          id=""
+          value={newPlayer}
+          onChange={(e) => setNewPlayer(e.target.value)}
+        />
+        <button type="submit">Add Player</button>
+      </form>
+      <ul>
+        {players.map((player) => (
+          <TeamMember
+            key={player.id}
+            player={player}
+            onRemovePlayer={onRemovePlayer}
+            onUpdatePlayer={onUpdatePlayer}
+          />
+        ))}
+      </ul>
     </>
   );
 }
