@@ -1,7 +1,0 @@
-:root {
-  --input-width: 40px;
-}
-
-.small-input {
-  width: var(--input-width);
-}

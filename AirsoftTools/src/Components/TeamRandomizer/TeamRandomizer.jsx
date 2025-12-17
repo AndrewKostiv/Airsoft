@@ -45,7 +45,7 @@ export default function TeamRandomizer({ players }) {
   //================================
   return (
     <>
-      <h2 className="title">TeamRandomizer</h2>
+      <h2 className="title">Team Randomizer</h2>
       <form onSubmit={handleMakeTeams}>
         <span>Number of Teams: </span>
         <select
@@ -68,7 +68,7 @@ export default function TeamRandomizer({ players }) {
         </button>
       </form>
       {teams.length > 0 ? (
-        <ul>
+        <ul className="teams-container">
           {teams.map((team, teamNumber) => (
             <Team key={teamNumber} team={team} teamNumber={teamNumber} />
           ))}

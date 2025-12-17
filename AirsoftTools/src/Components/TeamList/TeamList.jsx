@@ -1,5 +1,7 @@
 import { useState } from "react";
 import TeamMember from "./TeamMember";
+import "./TeamList.css";
+
 function TeamList({ players, onAddPlayer, onRemovePlayer, onUpdatePlayer }) {
   const [newPlayer, setNewPlayer] = useState("");
 
@@ -16,7 +18,7 @@ function TeamList({ players, onAddPlayer, onRemovePlayer, onUpdatePlayer }) {
         />
         <button type="submit">Add Player</button>
       </form>
-      <ul>
+      <ul className="member-list">
         {players.map((player) => (
           <TeamMember
             key={player.id}

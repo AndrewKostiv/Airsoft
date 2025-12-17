@@ -1,0 +1,47 @@
+:root {
+  --input-width: 40px;
+}
+/* 
+=======================
+Team Members
+=======================
+*/
+.small-input {
+  width: var(--input-width);
+}
+
+.input-box {
+  text-align: center;
+  border-radius: 10px;
+}
+
+.remove-btn {
+  text-align: center;
+  color: red;
+  text-shadow: 0px 0px 16px black;
+  padding: 0px 10px;
+  background-color: transparent;
+  border: 1px solid black;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 16px;
+}
+.remove-btn:hover {
+  background-color: rgb(210, 53, 53);
+  border: 1px solid black;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+  transition: 10ms all ease-in-out;
+}
+
+/* 
+=======================
+Team List
+=======================
+*/
+.member-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

@@ -1,16 +1,17 @@
-import "./TeamMember.css";
+import "./TeamList.css";
 function TeamMember({ player, onRemovePlayer, onUpdatePlayer }) {
   return (
     <li key={player.id} value={player.name}>
       Name:{" "}
       <input
+        className="input-box"
         type="text"
         value={player.name}
         onChange={(e) => onUpdatePlayer(e, { name: e.target.value }, player.id)}
       />{" "}
       Kills:{" "}
       <input
-        className="small-input"
+        className="small-input input-box"
         type="number"
         value={player.kills}
         onChange={(e) =>
@@ -19,7 +20,7 @@ function TeamMember({ player, onRemovePlayer, onUpdatePlayer }) {
       />{" "}
       Deaths:{" "}
       <input
-        className="small-input"
+        className="small-input input-box"
         type="number"
         value={player.deaths}
         onChange={(e) =>
@@ -28,7 +29,7 @@ function TeamMember({ player, onRemovePlayer, onUpdatePlayer }) {
       />{" "}
       Melee Kills:{" "}
       <input
-        className="small-input"
+        className="small-input input-box"
         type="number"
         value={player.melee}
         onChange={(e) =>
@@ -37,7 +38,7 @@ function TeamMember({ player, onRemovePlayer, onUpdatePlayer }) {
       />{" "}
       Games Played:{" "}
       <input
-        className="small-input"
+        className="small-input input-box"
         type="number"
         value={player.gamesPlayed}
         onChange={(e) =>
@@ -46,7 +47,7 @@ function TeamMember({ player, onRemovePlayer, onUpdatePlayer }) {
       />{" "}
       Games Won:{" "}
       <input
-        className="small-input"
+        className="small-input input-box"
         type="number"
         value={player.gamesWon}
         onChange={(e) =>
@@ -55,14 +56,19 @@ function TeamMember({ player, onRemovePlayer, onUpdatePlayer }) {
       />{" "}
       Games Flaked:{" "}
       <input
-        className="small-input"
+        className="small-input input-box"
         type="number"
         value={player.gamesFlaked}
         onChange={(e) =>
           onUpdatePlayer(e, { gamesFlaked: e.target.value }, player.id)
         }
       />
-      <button onClick={(e) => onRemovePlayer(e, player.id)}>❌</button>
+      <button
+        className="remove-btn"
+        onClick={(e) => onRemovePlayer(e, player.id)}
+      >
+        &times;
+      </button>
     </li>
   );
 }
