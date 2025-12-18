@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const defaultNewGameModePiece = {
   name: "",
@@ -47,7 +47,7 @@ function GameList({ gameModes, setGameModes }) {
 
   return (
     <>
-      <h2>GameList</h2>
+      <h2 className="title">GameList</h2>
       <form onSubmit={(e) => handleAddGameMode(e, newGameModePiece)}>
         <input
           type="text"

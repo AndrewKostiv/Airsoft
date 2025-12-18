@@ -5,7 +5,10 @@ This Airsoft Tool will solve several problems my friends encountered in our game
 ## Feature List (so far):
 
 ```
+List of Teams
 Team Randomizer
+List of Games
+Game Randomizer
 ```
 
 ### Features Planned:
