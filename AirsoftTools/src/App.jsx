@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "./css/App.css";
 import TeamRandomizer from "./Components/TeamRandomizer/TeamRandomizer.jsx";
 import TeamList from "./Components/TeamList/TeamList.jsx";
+import Game from "./Components/Game Randomizer/Game.jsx";
+import GameList from "./Components/GameList/GameList.jsx";
 
 const initialPlayers = [
   {
@@ -61,76 +63,58 @@ const initialPlayers = [
   },
 ];
 
+const initialGameModes = [
+  { name: "Team Death Match", active: false, id: 1, forts: true },
+  { name: "Free For All", active: false, id: 2, forts: false },
+  { name: "Attack & Defend", active: false, id: 3, forts: true },
+  { name: "Capture The Flag", active: false, id: 4, forts: true },
+];
+
 function App() {
   const [players, setPlayers] = useState(initialPlayers);
+  const [gameModes, setGameModes] = useState(initialGameModes);
 
   //================================
   // Functions
   //================================
   /**
-   *
-   * @param {*} e
-   * @param {*} newPlayerName Player name
+   * All purpose array shuffler
+   * @param {*} array
+   * @returns shuffled array
    */
-  function handleAddPlayer(e, newPlayerName) {
-    e.preventDefault();
-    if (!newPlayerName) return;
-    const newPlayer = {
-      name: newPlayerName,
-      Rank: 0,
-      melee: 0,
-      kills: 0,
-      deaths: 0,
-      gamesPlayed: 0,
-      gamesWon: 0,
-      gamesFlaked: 0,
-      id: Date.now(),
-    };
-    setPlayers((players) => [...players, newPlayer]);
-  }
+  // function shuffle(array) {
+  //   let currentIndex = array.length,
+  //     randomIndex;
 
-  /**
-   *
-   * @param {*} e
-   * @param {*} id Player ID
-   */
-  function handleRemovePlayer(e, id) {
-    e.preventDefault();
-    setPlayers((players) => players.filter((player) => player.id !== id));
-  }
+  //   // While there remain elements to shuffle.
+  //   while (currentIndex !== 0) {
+  //     // Pick a remaining element.
+  //     randomIndex = Math.floor(Math.random() * currentIndex);
+  //     currentIndex--;
 
-  /**
-   *
-   * @param {*} e
-   * @param {*} newPlayerData Only the new data object, not a full player data object
-   * @param {*} id Player ID
-   */
-  function handleUpdatePlayer(e, newPlayerData, id) {
-    // e.preventDefault();
-    // console.log(newPlayerData);
-    // console.log(id);
+  //     // And swap it with the current element.
+  //     [array[currentIndex], array[randomIndex]] = [
+  //       array[randomIndex],
+  //       array[currentIndex],
+  //     ];
+  //   }
 
-    setPlayers((players) =>
-      players.map((player) =>
-        player.id === id ? { ...player, ...newPlayerData } : player
-      )
-    );
-  }
-  useEffect(() => {
-    console.log(players);
-  }, [players]);
+  //   return array;
+  // }
+
+  // useEffect(() => {
+  //   console.log(players);
+  // }, [players]);
+
   //================================
   // jsx
   //================================
   return (
     <>
-      <TeamList
-        players={players}
-        onAddPlayer={handleAddPlayer}
-        onRemovePlayer={handleRemovePlayer}
-        onUpdatePlayer={handleUpdatePlayer}
-      />
+      <TeamList players={players} setPlayers={setPlayers} />
       <TeamRandomizer players={players} />
+      <GameList gameModes={gameModes} setGameModes={setGameModes} />
+      <Game gameModes={gameModes} setGameModes={setGameModes} />
     </>
   );
 }

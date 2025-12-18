@@ -46,24 +46,29 @@ export default function TeamRandomizer({ players }) {
   return (
     <>
       <h2 className="title">Team Randomizer</h2>
-      <form onSubmit={handleMakeTeams}>
+      <form className="team-randomizer-form" onSubmit={handleMakeTeams}>
         <span>Number of Teams: </span>
         <select
+          className="input-number"
           name=""
           id=""
           value={count}
           onChange={(e) => setCount(Number(e.target.value))}
         >
-          {Array.from({ length: players.length }, (_, i) => i + 1).map(
-            (num) => (
-              <option key={num} value={num}>
-                {num}
-              </option>
-            )
-          )}
+          {players.map((player, index) => (
+            <option key={index} value={index + 1}>
+              {index + 1}
+            </option>
+          ))}
         </select>
-        <button type="submit">Make teams</button>
-        <button type="reset" onClick={() => setTeams([])}>
+        <button className="make-teams-btn" type="submit">
+          Make teams
+        </button>
+        <button
+          className="clear-teams-btn"
+          type="button"
+          onClick={() => setTeams([])}
+        >
           Clear
         </button>
       </form>
